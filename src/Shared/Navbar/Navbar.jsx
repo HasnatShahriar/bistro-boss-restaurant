@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   const navOptions = <div className="flex">
-    <li><a href="">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Blog</a></li>
+    <li><Link to='/'>Home</Link></li>
+    <li><Link to='/menu'>Our Menu</Link></li>
+ 
   </div>
   return (
     <div className="navbar fixed z-10 bg-opacity-30 bg-black max-w-screen-xl text-white">

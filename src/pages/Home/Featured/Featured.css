@@ -1,3 +1,6 @@
-.featured-item{
-  background-image: url('../../../assets/home/featured.jpg');
+.featured-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../assets/home/featured.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
