@@ -4,7 +4,8 @@ const Navbar = () => {
   const navOptions = <div className="flex">
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/menu'>Our Menu</Link></li>
-    <li><Link to='/order'>Order</Link></li>
+    <li><Link to='/order/salad'>Order</Link></li>
+    <li><Link to='/login'>Login</Link></li>
  
   </div>
   return (
