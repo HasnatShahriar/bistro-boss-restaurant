@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 const Login = () => {
 
   // const captchaRef = useRef(null);
@@ -13,7 +14,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location?.state?.from?.pathname || "/";
-  console.log('state in the location',location.state);
+  console.log('state in the location', location.state);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -107,8 +108,14 @@ const Login = () => {
               </div>
             </form>
             <p className="text-center mb-4 font-semibold"><small>New Here?</small> <Link to='/signUp'>Create a account</Link></p>
+            <div className="divider"></div>
+            <div className='ml-8 my-4'>
+              Social Media Login
+              <SocialLogin />
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   );

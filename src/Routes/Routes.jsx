@@ -9,46 +9,72 @@ import PrivateRoute from "./PrivateRoute";
 import Secret from "../Shared/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AddItems from "../pages/Dashboard/AddItems/AddItems";
+import AdminRoute from "./AdminRoute";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
+import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main/>,
-    children:[
+    element: <Main />,
+    children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home />
       },
       {
         path: '/menu',
-        element: <Menu/>
+        element: <Menu />
       },
       {
         path: 'order/:category',
-        element: <Order/>
+        element: <Order />
       },
       {
         path: '/login',
-        element: <Login/>
+        element: <Login />
       },
       {
         path: '/signUp',
-        element: <SignUp/>
+        element: <SignUp />
       },
       {
-        path:"secret",
-        element: <PrivateRoute><Secret/></PrivateRoute>
+        path: "secret",
+        element: <PrivateRoute><Secret /></PrivateRoute>
       }
     ]
   },
   {
     path: "dashboard",
-    element: <Dashboard/>,
-    children:[
+    element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    children: [
+      // normal users routes
       {
         path: "cart",
-        element: <PrivateRoute><Cart/></PrivateRoute>
+        element: <Cart />
+      },
+
+      // admin only routes
+      {
+        path: "addItems",
+        element: <AdminRoute><AddItems /></AdminRoute>
+      },
+      {
+        path: 'manageItems',
+        element: <AdminRoute><ManageItems/></AdminRoute>
+      },
+      {
+        path: 'updateItem/:id',
+        element: <AdminRoute><UpdateItem/></AdminRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+      },
+      {
+        path: "users",
+        element: <AdminRoute><AllUsers /></AdminRoute>
       }
+
     ]
   }
 ]);
