@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/cart'><FaShoppingCart /> My Cart ({cart.length})</NavLink></li>
                 <li><NavLink to='/dashboard/reservation'><FaCalendar /> Reservation</NavLink></li>
                 <li><NavLink to='/dashboard/review'><FaAd /> Review</NavLink></li>
-                <li><NavLink to='/dashboard/review'><FaAd />Add a Review</NavLink></li>
+                <li><NavLink to='/dashboard/paymentHistory'><FaAd />Payment History</NavLink></li>
               </>
           }
           {/* shared nav links */}
